@@ -3,11 +3,7 @@ import { getConnInfo } from 'hono/deno'
 
 const app = new Hono();
 
-app.get("/", (c) => {
-  return c.text("There's nothing here...try `/ip`");
-});
-
-app.get("/ip", async (c) => {
+app.get("/", async (c) => {
   const { remote: { address } } = await getConnInfo(c);
   const ip = address ?? 'Unknown';
 
