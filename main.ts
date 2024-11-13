@@ -10,7 +10,7 @@ app.get("/", async (c) => {
   const accept = c.req.header("accept");
 
   if (accept === "application/json") {
-    return c.json({ ip });
+    return c.json({ ip, hello: "world" });
   }
 
   return c.text(ip);
